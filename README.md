@@ -6,6 +6,13 @@ The message disapears after the user closed it three times or explicitely clicke
 
 Includes a default twig + css template.
 
+Install
+-------
+
+```
+composer require c2is/cookie-bundle ~1.0@dev
+```
+
 Usage
 -----
 
