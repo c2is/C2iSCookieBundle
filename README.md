@@ -9,8 +9,25 @@ Includes a default twig + css template.
 Install
 -------
 
+With composer:
+
 ```
 composer require c2is/cookie-bundle ~1.0@dev
+```
+
+Don't forget to add the bundle to your AppKernel:
+
+``` php
+class AppKernel extends Kernel
+{
+    public function registerBundles()
+    {
+        $bundles = array(
+            ...
+            new C2is\Bundle\CookieBundle\C2isCookieBundle(),
+        );
+    }
+}
 ```
 
 Usage
