@@ -1,0 +1,27 @@
+{
+    "name": "c2is/cookie-bundle",
+    "type": "symfony-bundle",
+    "description": "Includes twig and css templating, js and php logic allowing the display of a cookie acceptance message",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guillaume Manen",
+            "email": "g.manen@c2is.fr"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "~2.0",
+        "friendsofsymfony/jsrouting-bundle": "~1.1"
+    },
+    "autoload": {
+        "psr-0": { "C2is\\Bundle\\CookieBundle": "" }
+    },
+    "target-dir": "C2is/Bundle/CookieBundle",
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

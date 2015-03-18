@@ -1,0 +1,9 @@
+parameters:
+    c2is_cookie.manager.class: 'C2is\Bundle\CookieBundle\Manager\CookieManager'
+services:
+    c2is_cookie.manager:
+        class: %c2is_cookie.manager.class%
+        scope: request
+        arguments:
+            - @request
+            - %c2is_cookie%
