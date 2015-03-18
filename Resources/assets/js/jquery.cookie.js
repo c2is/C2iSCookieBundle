@@ -26,7 +26,6 @@ $(function() {
     $.extend(C2iSCookie.prototype, {
         init: function() {
             this.bindUiActions();
-            $container.trigger('cookie_init');
         },
         bindUiActions: function() {
             var $container = $(this.element);
