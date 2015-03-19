@@ -12,18 +12,20 @@ Install
 With composer:
 
 ```
-composer require c2is/cookie-bundle ~1.0@dev
+$ composer require c2is/cookie-bundle ~1.0@dev
 ```
 
-Don't forget to add the bundle to your AppKernel:
+You will have to register the bundle into your AppKernel. The bundle depends on FOSJsRoutingBundle for the default javascript behaviour, so if you don't have it installed already, register that aswell:
 
 ``` php
+// app/AppKernel.php
 class AppKernel extends Kernel
 {
     public function registerBundles()
     {
         $bundles = array(
             ...
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(), // If not already registered
             new C2is\Bundle\CookieBundle\C2isCookieBundle(),
         );
     }
@@ -36,8 +38,12 @@ Usage
 You need to add the bundle routing configuration to your application routing like so:
 
 ``` yaml
+# app/config/routing.yml
 c2is_cookie:
     resource: "@C2isCookieBundle/Resources/config/routing.yml"
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 ```
 
 There are three routes used in this bundle. One serves the HTML template for your cookie acceptance panel, the others are called with Ajax requests to register the user actions.
@@ -73,10 +79,18 @@ For the whole thing to work properly you will need to include the javascript (yo
     ...
     <body>
         ...
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="{{ asset('bundles/c2iscookie/js/jquery.cookie.min.js') }}"></script>
     </body>
 </html>
+```
+
+All this will be for naught before you install your assets though:
+
+```
+$ php app/console assets:install --symlink web
 ```
 
 Configuration
