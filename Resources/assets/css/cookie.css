@@ -1,14 +1,131 @@
 #cookiesLegalMessage {
     bottom: 0;
-    z-index: 99999999;
+    z-index: 9999;
     position: fixed;
     left: 0;
     right: 0;
     padding: 0;
-    background: #252525;
-    color: #fff;
-    font-family: 'Asap',Arial,sans-serif;
-    font-size: 12px;
-    -webkit-transition: all 0.4s ease;
-    transition: all 0.4s ease;
+    background-color: #f9f9f9;
+    background-color: rgba(249, 249, 249, .9);
+    color: #6f6f6f;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+    -webkit-box-shadow: 0 0 4px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.1);
+    border-top:1px solid #ddd;
+}
+
+@media only screen and (max-width : 768px) {
+    #cookiesLegalMessage {
+        font-size:11px;
+    }
+}
+
+#cookiesLegalMessage .inner-content {
+    width:100%;
+    max-width:1080px;
+    padding:12px 55px 12px 10px;
+    margin:0 auto;
+    position:relative;
+}
+
+#cookiesLegalMessage .close {
+    cursor:pointer;
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 0.75em;
+    height: 0.75em;
+    position: absolute;
+    right:-10px;
+    top:-16px;
+    border: 1px solid #696969;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    font: normal 8em/normal Arial, Helvetica, sans-serif;
+    color: rgba(0,0,0,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: #696969;
+    overflow:hidden;
+    text-indent:-999em;
+    -moz-transform: scale(.35);
+    -webkit-transform: scale(.35);
+    -o-transform: scale(.35);
+    -ms-transform: scale(.35);
+    transform: scale(.35);
+}
+
+#cookiesLegalMessage .close:hover {
+    background:#595959;
+}
+
+#cookiesLegalMessage .close::before {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 0.45em;
+    height: 0.1em;
+    position: absolute;
+    content: "";
+    top: 0.33em;
+    left: 0.155em;
+    border: none;
+    font: normal 100%/normal Arial, Helvetica, sans-serif;
+    color: rgba(0,0,0,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: #ffffff;
+    text-shadow: none;
+    -webkit-transform: rotateZ(45deg)   ;
+    transform: rotateZ(45deg)   ;
+}
+
+#cookiesLegalMessage .close::after {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 0.45em;
+    height: 0.1em;
+    position: absolute;
+    content: "";
+    top: 0.33em;
+    left: 0.155em;
+    border: none;
+    font: normal 100%/normal Arial, Helvetica, sans-serif;
+    color: rgba(0,0,0,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: #ffffff;
+    text-shadow: none;
+    -webkit-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg);
+}
+
+#cookiesLegalMessage p {
+    margin:0;
+    display:block;
+    width:100%;
+    line-height:20px;
+}
+
+#cookiesLegalMessage .cookie-accept {
+    margin:0;
+    background:none;
+    border:1px solid #696969;
+    font-size:12px;
+    padding:3px 6px 1px;
+    background:#696969;
+    color:#fff;
+    font-weight:bold;
+    margin:1px 0 0 6px;
+    line-height:17px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+#cookiesLegalMessage .cookie-accept:hover {
+    background:#595959;
 }
