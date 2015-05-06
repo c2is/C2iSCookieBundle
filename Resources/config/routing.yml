@@ -9,8 +9,8 @@ c2is_cookie_close:
     schemes: [ 'http' ]
     options: { expose: true }
 
-c2is_cookie_acknowledge:
-    path:     /_cookie/acknowledge
-    defaults: { _controller: C2isCookieBundle:Cookie:acknowledge }
+c2is_cookie_accept:
+    path:     /_cookie/accept
+    defaults: { _controller: C2isCookieBundle:Cookie:accept }
     schemes: [ 'http' ]
     options: { expose: true }

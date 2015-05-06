@@ -56,7 +56,7 @@ class CookieManager
                 sprintf(
                     'Invalid action used to generate a cookie. Passed "%s", available actions are "%s"',
                     $action,
-                    array_keys($cookieConfig['actions'])
+                    array_values($cookieConfig['actions'])
                 )
             );
         }

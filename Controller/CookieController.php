@@ -68,17 +68,17 @@ class CookieController extends Controller
     /**
      * @return JsonResponse
      */
-    public function acknowledgeAction()
+    public function acceptAction()
     {
         $cookieManager = $this->getCookieManager();
-        $cookie        = $cookieManager->generateCookie('acknowledge');
+        $cookie        = $cookieManager->generateCookie('accept');
         /** @var Translator $translator */
         $translator = $this->get('translator');
 
         $response = new JsonResponse(
             array(
                 'success' => true,
-                'message' => $translator->trans('c2is.cookie.acknowledge.message'),
+                'message' => $translator->trans('c2is.cookie.accept.message'),
             )
         );
         $response->headers->setCookie($cookie);

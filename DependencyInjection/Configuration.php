@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('cookie_name')
                     ->cannotBeEmpty()
-                    ->defaultValue('c2is_cookie_acknowledged')
+                    ->defaultValue('c2is_cookie_accepted')
                 ->end()
                 ->scalarNode('occurrences')
                     ->cannotBeEmpty()

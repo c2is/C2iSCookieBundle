@@ -12,7 +12,7 @@ $(function() {
     var pluginName = "c2isCookie",
         defaults = {
             on_closed: false,
-            on_acknowledged: false
+            on_accepted: false
         };
 
     function C2iSCookie(element, options) {
@@ -38,14 +38,14 @@ $(function() {
             });
 
             $container.on('click', '.cookie-accept', function(event) {
-                $.get(Routing.generate('c2is_cookie_acknowledge'), function(data) {
+                $.get(Routing.generate('c2is_cookie_accept'), function(data) {
                     $container.hide();
-                    $container.trigger('cookie_acknowledged', [ data ]);
+                    $container.trigger('cookie_accepted', [ data ]);
                 });
             });
 
             $container.on('cookie_closed', this.settings['on_closed']);
-            $container.on('cookie_acknowledged', this.settings['on_acknowledged']);
+            $container.on('cookie_accepted', this.settings['on_accepted']);
         },
         close: function() {
 
