@@ -34,6 +34,11 @@ class CookieController extends Controller
             $cacheDuration = 60 * 60 * 24;
         }
 
+        $cookie = $cookieManager->generateEmptyCookie('close');
+        $response->headers->setCookie($cookie);
+        $cookie = $cookieManager->generateEmptyCookie('accept');
+        $response->headers->setCookie($cookie);
+
         $response->setPrivate();
         $response->setMaxAge($cacheDuration);
         $response->setSharedMaxAge($cacheDuration);

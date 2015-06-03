@@ -47,7 +47,43 @@ class CookieManager
      * @return \Symfony\Component\HttpFoundation\Cookie
      * @throws \Exception
      */
+    public function generateEmptyCookie($action = 'close')
+    {
+        $cookieConfig = $this->config;
+        $this->validateAction($action);
+
+        return new Cookie($cookieConfig['cookie_name'], 0, $cookieConfig['cookie_expire']);
+    }
+
+    /**
+     * @param string $action
+     *
+     * @return \Symfony\Component\HttpFoundation\Cookie
+     * @throws \Exception
+     */
     public function generateCookie($action = 'close')
+    {
+        $cookieConfig = $this->config;
+        $this->validateAction($action);
+
+        $request     = $this->request;
+        $cookieName  = $cookieConfig['cookie_name'];
+        $occurrences = $step = $cookieConfig['actions'][$action];
+        $cookie      = $request->cookies->get($cookieName, null);
+
+        if ($cookie) {
+            $occurrences = ((int)$cookie) + $step;
+        }
+
+        return new Cookie($cookieConfig['cookie_name'], $occurrences, $cookieConfig['cookie_expire']);
+    }
+
+    /**
+     * @param $action
+     *
+     * @throws \C2is\Bundle\CookieBundle\Exception\InvalidParameterException
+     */
+    protected function validateAction($action)
     {
         $cookieConfig = $this->config;
 
@@ -60,16 +96,5 @@ class CookieManager
                 )
             );
         }
-
-        $request     = $this->request;
-        $cookieName  = $cookieConfig['cookie_name'];
-        $occurrences = $step = $cookieConfig['actions'][$action];
-        $cookie      = $request->cookies->get($cookieName, null);
-
-        if ($cookie) {
-            $occurrences = ((int)$cookie) + $step;
-        }
-
-        return new Cookie($cookieConfig['cookie_name'], $occurrences, 0);
     }
 }
