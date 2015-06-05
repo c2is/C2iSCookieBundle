@@ -18,11 +18,24 @@ use Symfony\Component\Translation\Translator;
 class CookieController extends Controller
 {
     /**
-     * @param Request $request
-     *
      * @return Response
      */
-    public function messageAction(Request $request)
+    public function initializeAction()
+    {
+        $cookieManager = $this->getCookieManager();
+        $cookieClose   = $cookieManager->generateEmptyCookie('close');
+        $cookieAccept  = $cookieManager->generateEmptyCookie('accept');
+        $response      = new Response('');
+        $response->headers->setCookie($cookieClose);
+        $response->headers->setCookie($cookieAccept);
+
+        return $response;
+    }
+
+    /**
+     * @return Response
+     */
+    public function messageAction()
     {
         $cookieManager = $this->getCookieManager();
         $cacheDuration = 0;
@@ -33,11 +46,6 @@ class CookieController extends Controller
             $response      = new Response('');
             $cacheDuration = 60 * 60 * 24;
         }
-
-        $cookie = $cookieManager->generateEmptyCookie('close');
-        $response->headers->setCookie($cookie);
-        $cookie = $cookieManager->generateEmptyCookie('accept');
-        $response->headers->setCookie($cookie);
 
         $response->setPrivate();
         $response->setMaxAge($cacheDuration);

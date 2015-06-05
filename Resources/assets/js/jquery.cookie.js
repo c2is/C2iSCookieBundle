@@ -2,6 +2,7 @@ $(function() {
     var $cookieContainer = $('#cookiesLegalMessage');
 
     if ($cookieContainer.length > 0) {
+        $.get(Routing.generate('c2is_cookie_initialize'));
         $cookieContainer.c2isCookie();
     }
 });

@@ -1,4 +1,9 @@
 c2is_cookie_message:
+    path:     /_cookie/initialize
+    defaults: { _controller: C2isCookieBundle:Cookie:initialize }
+    schemes: [ 'http' ]
+
+c2is_cookie_message:
     path:     /_cookie/message
     defaults: { _controller: C2isCookieBundle:Cookie:message }
     schemes: [ 'http' ]
