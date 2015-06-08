@@ -1,6 +1,7 @@
 c2is_cookie_initialize:
     path:     /_cookie/initialize
-    defaults: { _controller: C2isCookieBundle:Cookie:initialize }
+    defaults: { _controller: C2isCookieBundle:Cookie:initialize
+    options: { expose: true }
 
 c2is_cookie_message:
     path:     /_cookie/message
