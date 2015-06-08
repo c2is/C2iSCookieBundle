@@ -1,21 +1,17 @@
-c2is_cookie_message:
+c2is_cookie_initialize:
     path:     /_cookie/initialize
     defaults: { _controller: C2isCookieBundle:Cookie:initialize }
-    schemes: [ 'http' ]
 
 c2is_cookie_message:
     path:     /_cookie/message
     defaults: { _controller: C2isCookieBundle:Cookie:message }
-    schemes: [ 'http' ]
 
 c2is_cookie_close:
     path:     /_cookie/close
     defaults: { _controller: C2isCookieBundle:Cookie:close }
-    schemes: [ 'http' ]
     options: { expose: true }
 
 c2is_cookie_accept:
     path:     /_cookie/accept
     defaults: { _controller: C2isCookieBundle:Cookie:accept }
-    schemes: [ 'http' ]
     options: { expose: true }
