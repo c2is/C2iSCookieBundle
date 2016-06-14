@@ -5,6 +5,7 @@ namespace C2is\Bundle\CookieBundle\Manager;
 use C2is\Bundle\CookieBundle\Exception\InvalidParameterException;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Class CookieManager
@@ -20,12 +21,12 @@ class CookieManager
     protected $config;
 
     /**
-     * @param Request $request
+     * @param RequestStack $requestStack
      * @param array   $config
      */
-    public function __construct(Request $request, array $config)
+    public function __construct(RequestStack $requestStack, array $config)
     {
-        $this->request = $request;
+        $this->request = $requestStack->getCurrentRequest();
         $this->config  = $config;
     }
 
